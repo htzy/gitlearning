@@ -1,0 +1,19 @@
+# Enable tab completion
+source ~/git-completion.bash
+
+# colors!
+green="\[\033[0;32m\]"
+blue="\[\033[0;34m\]"
+purple="\[\033[0;35m\]"
+reset="\[\033[0m\]"
+
+# Change command prompt 在提示符中显示一些git相关的内容，如commit id
+source ~/git-prompt.sh
+# git代码库更改后在提示符中显示星号
+export GIT_PS1_SHOWDIRTYSTATE=1
+# '\u' adds the name of the current user to the prompt
+# '\$(__git_ps1)' adds git-related stuff
+# '\W' adds the name of the current directory
+# 提示符的样式，purple\u：紫色用户名；当前检出的提交或其他git相关内容为绿色；
+# \$美元符号后面的控制器为蓝色；之后的任何文本均为默认的颜色
+export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
